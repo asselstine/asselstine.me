@@ -1,8 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
 <!doctype html>
@@ -12,14 +18,61 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>Hi, I'm Brendan Asselstine</h1>
-			<p>
-				Welcome to my personal blog. I write about software engineering, technology, and things I find interesting.
-			</p>
-			<p>
-				Check out the <a href="/blog">blog</a> to see my latest posts, or learn more <a href="/about">about me</a>.
-			</p>
+		<main id="main-content" class="max-w-3xl mx-auto w-full px-4">
+			<section id="hero" class="pt-8 pb-6">
+				<h1 class="my-2 text-2xl font-bold sm:my-4 sm:text-3xl">
+					Hi, I'm Brendan Asselstine
+				</h1>
+				<p class="opacity-80">
+					Software engineer. Writing about technology and things I find interesting.
+				</p>
+				<div class="mt-4 flex items-center gap-1">
+					<a href="https://github.com/asselstine" class="group inline-block hover:text-accent p-1 hover:rotate-6" title="Brendan on GitHub">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6 fill-transparent stroke-current opacity-90">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+						</svg>
+						<span class="sr-only">Brendan on GitHub</span>
+					</a>
+				</div>
+			</section>
+
+			<hr class="border-border" aria-hidden="true">
+
+			<section id="recent-posts" class="pt-12 pb-6">
+				<ul>
+					{posts.map((post) => (
+						<li class="my-8">
+							<a href={`/blog/${post.id}/`} class="text-lg font-medium text-accent decoration-dashed underline-offset-4 hover:underline">
+								{post.data.title}
+							</a>
+							<div class="flex items-center gap-3 mt-1 mb-2">
+								<div class="flex items-center gap-2 opacity-80">
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+										<path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" />
+										<path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" />
+									</svg>
+									<span class="text-sm italic">
+										<FormattedDate date={post.data.pubDate} />
+									</span>
+								</div>
+							</div>
+							{post.data.description && (
+								<p class="opacity-80">{post.data.description}</p>
+							)}
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<div class="my-8 text-center">
+				<a href="/blog/" class="inline-flex items-center gap-1 hover:text-accent">
+					All Posts
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" />
+					</svg>
+				</a>
+			</div>
 		</main>
 		<Footer />
 	</body>
