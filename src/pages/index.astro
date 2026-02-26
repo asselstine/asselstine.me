@@ -1,0 +1,26 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Hi, I'm Brendan Asselstine</h1>
+			<p>
+				Welcome to my personal blog. I write about software engineering, technology, and things I find interesting.
+			</p>
+			<p>
+				Check out the <a href="/blog">blog</a> to see my latest posts, or learn more <a href="/about">about me</a>.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
