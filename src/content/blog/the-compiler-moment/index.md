@@ -2,7 +2,7 @@
 title: 'The Compiler Moment, Again'
 description: "AI is like the introduction of compilers: they allowed many more people to write software. This ultimately expands the pie for everyone, and we'll see net new jobs"
 pubDate: 'Mar 02 2026'                                    
-heroImage: './AI_software_explosion.png'
+heroImage: './AI_software_explosion.jpg'
 ---
 
 History doesn't repeat, but it rhymes.
