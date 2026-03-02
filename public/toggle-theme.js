@@ -1,9 +1,7 @@
 function getPreferTheme() {
   const currentTheme = localStorage.getItem("theme");
   if (currentTheme) return currentTheme;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  return "dark";
 }
 
 let themeValue = getPreferTheme();
