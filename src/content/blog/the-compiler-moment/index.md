@@ -11,7 +11,7 @@ I see a lot of doom and gloom by software developers about the advent of agentic
 
 However like many I have also felt a jubilance at the freedom to build anything. No longer am I constrained by the syntax and eccentricities of a language. Of course now the question is: what do I build?
 
-Developers are worried about their relevance, now that anyone can be a programmer. Over the last few days I've watched my partner wrestle with Claude Cowork to automate a part of her job. Her company is doing an AI research spike and forcing everyone to program (for better or worse).  Helping her revealed just how wide the gap in knowledge is between developers and those who've never seen a terminal before. It's also revealed how early we are; so much knowledge is still required to build. She needed plenty of help.
+Now that anyone can be a programmer developers are worried about their relevance. Over the last few days I've watched my partner wrestle with Claude Cowork to automate a part of her job. Her company is doing an AI research spike and forcing everyone to program (for better or worse).  Helping her revealed just how wide the gap in knowledge is between developers and those who've never seen a terminal before. It's also revealed how early we are; so much knowledge is still required to build. She needed plenty of help. Don't worry devs! We're still needed.
 
 This shift has reminded me of another time in software history that I learned about in class: the introduction of the FORTRAN compiler.
 
