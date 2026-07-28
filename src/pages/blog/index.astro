@@ -19,28 +19,28 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main id="main-content" class="max-w-3xl mx-auto w-full px-4">
-			<section class="pt-12 pb-6">
-				<h1 class="text-2xl font-bold mb-8">All Posts</h1>
+			<section class="pt-10 pb-6">
+				<h1 class="text-2xl font-bold mb-5">All Posts</h1>
 				<ul>
 					{posts.map((post) => (
-						<li class="my-8">
-							<a href={`/blog/${post.id}/`} class="text-lg font-medium text-accent decoration-dashed underline-offset-4 hover:underline">
-								{post.data.title}
-							</a>
-							<div class="flex items-center gap-3 mt-1 mb-2">
-								<div class="flex items-center gap-2 opacity-80">
-									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
-										<path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" />
-										<path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" />
-									</svg>
-									<span class="text-sm italic">
-										<FormattedDate date={post.data.pubDate} />
-									</span>
+						<li class="mb-5">
+							<a href={`/blog/${post.id}/`} class="post-preview-link">
+								<span class="post-preview-title">{post.data.title}</span>
+								<div class="flex items-center gap-3 mt-1 mb-2">
+									<div class="flex items-center gap-2 opacity-80">
+										<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+											<path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" />
+											<path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" />
+										</svg>
+										<span class="text-sm italic">
+											<FormattedDate date={post.data.pubDate} />
+										</span>
+									</div>
 								</div>
-							</div>
-							{post.data.description && (
-								<p class="opacity-80">{post.data.description}</p>
-							)}
+								{post.data.description && (
+									<p class="opacity-80">{post.data.description}</p>
+								)}
+							</a>
 						</li>
 					))}
 				</ul>

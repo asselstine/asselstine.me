@@ -77,6 +77,41 @@ a:hover {
   color: var(--accent);
 }
 
+.post-preview-link {
+  display: block;
+  margin-inline: -0.75rem;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  transition: background-color 150ms ease;
+}
+
+.post-preview-link:hover,
+.post-preview-link:focus-visible {
+  color: inherit;
+  background-color: color-mix(in oklab, var(--muted) 25%, transparent);
+}
+
+.post-preview-title {
+  color: var(--accent);
+  font-size: 1.125rem;
+  font-weight: 500;
+  transition: color 150ms ease;
+}
+
+.post-preview-link:hover .post-preview-title,
+.post-preview-link:focus-visible .post-preview-title {
+  color: color-mix(in oklab, var(--accent) 85%, var(--foreground));
+}
+
+.post-preview-link .opacity-80 {
+  transition: opacity 150ms ease;
+}
+
+.post-preview-link:hover .opacity-80,
+.post-preview-link:focus-visible .opacity-80 {
+  opacity: 0.9;
+}
+
 /* Prose styles for blog post content */
 .prose {
   color: var(--foreground);
@@ -203,4 +238,26 @@ a:hover {
 
 .prose li::marker {
   color: var(--accent);
+}
+
+.bio-link {
+  color: inherit;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.15em;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 0.2em;
+}
+
+.bio-link:hover {
+  color: inherit;
+  text-decoration-style: solid;
+}
+
+.bio-link svg {
+  width: 0.75em;
+  height: 0.75em;
+  stroke-width: 2.5;
 }
