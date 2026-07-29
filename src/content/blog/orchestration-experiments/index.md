@@ -2,6 +2,7 @@
 title: 'Orchestration Experiments'
 description: "Lessons learned after building a local agent orchestrator and a cloud agent orchestrator"
 pubDate: 'June 10, 2026'                                    
+draft: true
 ---
 
 Over the past few months I've been building agent orchestrators to automate aspects of the software development lifecycle. I wrote a local agent orchestrator and a cloud agent orchestrator and learned some important lessons:
